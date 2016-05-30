@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:gravity="center"
+        android:background="@color/home_rbtn">
+
+        <TextView
+            android:id="@+id/activity_main_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:textSize="20sp"
+            android:textColor="@color/color_white"
+            />
+
+
+    </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/activity_main_vp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        />
+
+    <RadioGroup
+        android:id="@+id/activity_main_rgroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:gravity="center">
+        <RadioButton
+            android:id="@+id/activity_main_rbtn00"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="首页"
+            android:gravity="center_horizontal"
+            android:button="@null"
+            android:drawableTop="@drawable/rbtn_checked_bg"
+            android:textColor="@drawable/rbtn_main_text"
+            android:drawablePadding="5dp"
+            android:tag="0"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/activity_main_rbtn01"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:gravity="center_horizontal"
+            android:drawableTop="@drawable/rbtn_checked_bg"
+            android:textColor="@drawable/rbtn_main_text"
+            android:drawablePadding="5dp"
+            android:text="资讯"
+            android:tag="1"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/activity_main_rbtn02"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:gravity="center_horizontal"
+            android:drawableTop="@drawable/rbtn_checked_bg"
+            android:textColor="@drawable/rbtn_main_text"
+            android:drawablePadding="5dp"
+            android:text="发现"
+            android:tag="2"
+            android:layout_weight="1"/>
+        <RadioButton
+            android:id="@+id/activity_main_rbtn03"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:gravity="center_horizontal"
+            android:drawableTop="@drawable/rbtn_checked_bg"
+            android:textColor="@drawable/rbtn_main_text"
+            android:drawablePadding="5dp"
+            android:text="我的"
+            android:tag="3"
+            android:layout_weight="1"/>
+
+
+    </RadioGroup>
+
+</LinearLayout>
