@@ -46,7 +46,6 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void registerListener() {
         pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-
             @Override
             public void onPageSelected(int position) {
                 switch (position){
@@ -94,7 +93,6 @@ public class MainActivity extends BaseActivity {
                         pager.setCurrentItem(3);
                         tvTitle.setText(rBtn03.getText().toString());
                         break;
-
                     default:
                         break;
                 }

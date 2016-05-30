@@ -42,54 +42,27 @@
         android:gravity="center">
         <RadioButton
             android:id="@+id/activity_main_rbtn00"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
             android:text="首页"
-            android:gravity="center_horizontal"
-            android:button="@null"
-            android:drawableTop="@drawable/rbtn_checked_bg"
-            android:textColor="@drawable/rbtn_main_text"
-            android:drawablePadding="5dp"
             android:tag="0"
-            android:layout_weight="1"/>
+            style="@style/main_rbtn_style"/>
         <RadioButton
             android:id="@+id/activity_main_rbtn01"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:gravity="center_horizontal"
-            android:drawableTop="@drawable/rbtn_checked_bg"
-            android:textColor="@drawable/rbtn_main_text"
-            android:drawablePadding="5dp"
+            style="@style/main_rbtn_style"
             android:text="资讯"
             android:tag="1"
-            android:layout_weight="1"/>
+            />
         <RadioButton
             android:id="@+id/activity_main_rbtn02"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:gravity="center_horizontal"
-            android:drawableTop="@drawable/rbtn_checked_bg"
-            android:textColor="@drawable/rbtn_main_text"
-            android:drawablePadding="5dp"
+            style="@style/main_rbtn_style"
             android:text="发现"
             android:tag="2"
-            android:layout_weight="1"/>
+            />
         <RadioButton
             android:id="@+id/activity_main_rbtn03"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:button="@null"
-            android:gravity="center_horizontal"
-            android:drawableTop="@drawable/rbtn_checked_bg"
-            android:textColor="@drawable/rbtn_main_text"
-            android:drawablePadding="5dp"
+            style="@style/main_rbtn_style"
             android:text="我的"
             android:tag="3"
-            android:layout_weight="1"/>
-
-
+           />
     </RadioGroup>
 
 </LinearLayout>

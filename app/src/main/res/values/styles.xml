@@ -90,6 +90,17 @@
         <item name="android:layout_marginRight">10dp</item>
     </style>
 
+    <style name="main_rbtn_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:button">@null</item>
+        <item name="android:drawableTop">@drawable/rbtn_checked_bg</item>
+        <item name="android:textColor">@drawable/rbtn_main_text</item>
+        <item name="android:drawablePadding">5dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
 
 
 </resources>
