@@ -9,11 +9,14 @@ import android.view.ViewGroup;
 
 import com.cpic.taylor.application.R;
 
+import uk.co.senab.photoview.PhotoView;
+
 /**
  * Created by Taylor on 2016/5/30.
  */
 public class DiscoverFragment extends Fragment{
 
+    PhotoView view;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
