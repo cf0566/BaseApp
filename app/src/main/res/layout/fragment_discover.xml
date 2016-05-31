@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:gravity="center"
     android:background="#5AEE">
-    <uk.co.senab.photoview.PhotoView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@mipmap/huanying_logo"
-        ></uk.co.senab.photoview.PhotoView>
 
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="预览图片"
+        android:id="@+id/fragment_dis_btn" />
 </LinearLayout>

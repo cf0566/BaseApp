@@ -65,19 +65,20 @@ public class TakePhotoActivity extends BaseActivity{
         super.onActivityResult(requestCode, resultCode, data);
         switch (requestCode){
             case PHOTO_REQUEST_TAKEPHOTO :
-
+//                Log.i("oye",pop.getCameraPic().toString()+"-------");
+                startPhotoZoom(Uri.fromFile(pop.getCameraPic()), 150);
                 break;
             case PHOTO_REQUEST_GALLERY:
-                if (data != null)
+                if (data != null){
                     startPhotoZoom(data.getData(), 150);
+                }
                 break;
             case PHOTO_REQUEST_CUT:
-                if (data != null)
+                if (data != null){
                     setPicToView(data);
+                }
                 break;
         }
-
-
     }
 
     private void startPhotoZoom(Uri uri, int size) {
@@ -85,7 +86,6 @@ public class TakePhotoActivity extends BaseActivity{
         intent.setDataAndType(uri, "image/*");
         // crop为true是设置在开启的intent中设置显示的view可以剪裁
         intent.putExtra("crop", "true");
-
         // aspectX aspectY 是宽高的比例
         intent.putExtra("aspectX", 1);
         intent.putExtra("aspectY", 1);
@@ -93,7 +93,6 @@ public class TakePhotoActivity extends BaseActivity{
         intent.putExtra("outputX", size);
         intent.putExtra("outputY", size);
         intent.putExtra("return-data", true);
-
         startActivityForResult(intent, PHOTO_REQUEST_CUT);
     }
 

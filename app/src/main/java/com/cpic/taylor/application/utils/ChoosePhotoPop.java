@@ -32,10 +32,14 @@ public class ChoosePhotoPop {
     private static final int PHOTO_REQUEST_GALLERY = 2;// 从相册中选择
     private static final int PHOTO_REQUEST_CUT = 3;// 结果
     // 创建一个以当前时间为名称的文件
-    File tempFile = new File(Environment.getExternalStorageDirectory() + "/Postcard", getPhotoFileName());
+    private File tempFile ;
 
     public ChoosePhotoPop(Activity activity) {
         this.activity = activity;
+    }
+
+    public File getCameraPic(){
+        return tempFile;
     }
 
     public void choosePhoto() {
@@ -49,8 +53,10 @@ public class ChoosePhotoPop {
             @Override
             public void onClick(View v) {
                 // 调用系统的拍照功能
+                tempFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath()+ "/"+ System.currentTimeMillis()+".jpg");
                 Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                 // 指定调用相机拍照后照片的储存路径
+//                Log.i("oye",tempFile+"");
                 intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(tempFile));
                 activity.startActivityForResult(intent, PHOTO_REQUEST_TAKEPHOTO);
                 pw.dismiss();
@@ -78,7 +84,6 @@ public class ChoosePhotoPop {
         pw.setOutsideTouchable(true);
         pw.setAnimationStyle(R.style.pw_anim_style);
         pw.showAtLocation(view, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
-
     }
 
     // 使用系统当前日期加以调整作为照片的名称

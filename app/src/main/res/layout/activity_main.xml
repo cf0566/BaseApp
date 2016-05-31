@@ -1,68 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:gravity="center"
-        android:background="@color/home_rbtn">
+        android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/activity_main_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="首页"
-            android:textSize="20sp"
-            android:textColor="@color/color_white"
-            />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/home_rbtn"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/activity_main_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="首页"
+                    android:textColor="@color/color_white"
+                    android:textSize="20sp" />
 
 
-    </LinearLayout>
+            </LinearLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/activity_main_vp"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        />
+            <android.support.v4.view.ViewPager
+                android:id="@+id/activity_main_vp"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
-    <RadioGroup
-        android:id="@+id/activity_main_rgroup"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="5dp"
-        android:gravity="center">
-        <RadioButton
-            android:id="@+id/activity_main_rbtn00"
-            android:text="首页"
-            android:tag="0"
-            style="@style/main_rbtn_style"/>
-        <RadioButton
-            android:id="@+id/activity_main_rbtn01"
-            style="@style/main_rbtn_style"
-            android:text="资讯"
-            android:tag="1"
-            />
-        <RadioButton
-            android:id="@+id/activity_main_rbtn02"
-            style="@style/main_rbtn_style"
-            android:text="发现"
-            android:tag="2"
-            />
-        <RadioButton
-            android:id="@+id/activity_main_rbtn03"
-            style="@style/main_rbtn_style"
-            android:text="我的"
-            android:tag="3"
-           />
-    </RadioGroup>
+            <RadioGroup
+                android:id="@+id/activity_main_rgroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="5dp">
 
-</LinearLayout>
+                <RadioButton
+                    android:id="@+id/activity_main_rbtn00"
+                    style="@style/main_rbtn_style"
+                    android:tag="0"
+                    android:text="首页" />
+
+                <RadioButton
+                    android:id="@+id/activity_main_rbtn01"
+                    style="@style/main_rbtn_style"
+                    android:tag="1"
+                    android:text="资讯" />
+
+                <RadioButton
+                    android:id="@+id/activity_main_rbtn02"
+                    style="@style/main_rbtn_style"
+                    android:tag="2"
+                    android:text="发现" />
+
+                <RadioButton
+                    android:id="@+id/activity_main_rbtn03"
+                    style="@style/main_rbtn_style"
+                    android:tag="3"
+                    android:text="我的" />
+            </RadioGroup>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/activity_home_menu"
+        android:layout_width="280dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:background="#FF0FFF"
+        android:clickable="true">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+            </LinearLayout>
+
+
+        </ScrollView>
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>
