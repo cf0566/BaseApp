@@ -75,6 +75,13 @@ public class LoginActivity extends BaseActivity{
 
             }
         });
+        tvForget.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,ForgetPwdActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

@@ -1,13 +1,16 @@
 package com.cpic.taylor.application.activity;
 
+import android.content.ComponentName;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.os.Bundle;
-import android.os.Handler;
-import android.util.Log;
-import android.view.MotionEvent;
+import android.os.IBinder;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.cpic.taylor.application.R;
+import com.cpic.taylor.application.Service.LoadSerVice;
 import com.cpic.taylor.application.base.BaseActivity;
 
 /**
@@ -16,14 +19,26 @@ import com.cpic.taylor.application.base.BaseActivity;
 public class TestActivity extends BaseActivity{
 
     private LinearLayout linearLayout;
-    private float mPosX;
-    private float mPosY;
-    private float mCurrentPosX;
-    private float mCurrentPosY;
+    private Button btn1,btn2,btn3;
+    private LoadSerVice.MyBinder binder;
+    private boolean isBound = false;
+
+    private ServiceConnection conn = new ServiceConnection() {
+
+        @Override
+        public void onServiceDisconnected(ComponentName name) {
+            binder = null;
+            isBound = false;
+        }
+
+        @Override
+        public void onServiceConnected(ComponentName name, IBinder service) {
+            binder = (LoadSerVice.MyBinder) service;
+        }
+    };
 
     @Override
     protected void getIntentData(Bundle savedInstanceState) {
-
     }
 
     @Override
@@ -34,59 +49,44 @@ public class TestActivity extends BaseActivity{
     @Override
     protected void initView() {
         linearLayout = (LinearLayout) findViewById(R.id.linearlayout);
+        btn1 = (Button) findViewById(R.id.button);
+        btn2 = (Button) findViewById(R.id.button2);
+        btn3 = (Button) findViewById(R.id.button3);
     }
 
     @Override
     protected void initData() {
-
     }
 
     @Override
     protected void registerListener() {
-
-        linearLayout.setOnTouchListener(new View.OnTouchListener() {
+        btn1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()){
-                    case MotionEvent.ACTION_DOWN:
-                        mPosX = motionEvent.getX();
-                        mPosY = motionEvent.getY();
-                         Log.i("oye", "ACTION_DOWN");
-                        break;
-                    // 移动
-                    case MotionEvent.ACTION_MOVE:
-                        Log.i("oye", "ACTION_MOVE");
-                        mCurrentPosX = motionEvent.getX();
-                        mCurrentPosY = motionEvent.getY();
-
-                        if (mCurrentPosX - mPosX > 20 && Math.abs(mCurrentPosY - mPosY) < 10) {
-                            // Log.i("oye", "向右");
-                            new Handler().postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-
-                                }
-                            }, 10);
-                        } else if (mCurrentPosX - mPosX < -20 && Math.abs(mCurrentPosY - mPosY) < 10) {
-                             Log.i("oye", "向左");
-
-                        } else if (mCurrentPosY - mPosY > 0 && Math.abs(mCurrentPosX - mPosX) < 10) {
-                            // Log.i("oye", "向下");
-                        } else if (mCurrentPosY - mPosY < 0 && Math.abs(mCurrentPosX - mPosX) < 10) {
-                            // Log.i("oye", "向上");
-                        }
-                        break;
-                    // 拿起
-                    case MotionEvent.ACTION_UP:
-                        Log.i("oye", "ACTION_UP");
-                        break;
-                    default:
-                        break;
-
+            public void onClick(View view) {
+                if (!isBound) {
+                    Intent intent = new Intent(TestActivity.this, LoadSerVice.class);
+                    bindService(intent, conn, BIND_AUTO_CREATE);
+                    isBound = true;
                 }
-                return true;
-
             }
         });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (binder != null) {
+                    binder.pause();
+                }
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (isBound) {
+                    binder.resume();
+                }
+            }
+        });
+
+
     }
 }
