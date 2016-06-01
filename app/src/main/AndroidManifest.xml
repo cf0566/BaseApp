@@ -43,7 +43,7 @@
         <activity android:name=".activity.TestActivity"></activity>
         <activity android:name=".activity.ForgetPwdActivity"></activity>
 
-        <service android:name=".Service.LoadSerVice"></service>
+        <service android:name=".Service.LoadService"></service>
     </application>
 
 </manifest>

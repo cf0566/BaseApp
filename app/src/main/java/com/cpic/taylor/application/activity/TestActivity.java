@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.cpic.taylor.application.R;
-import com.cpic.taylor.application.Service.LoadSerVice;
+import com.cpic.taylor.application.Service.LoadService;
 import com.cpic.taylor.application.base.BaseActivity;
 
 /**
@@ -20,7 +20,7 @@ public class TestActivity extends BaseActivity{
 
     private LinearLayout linearLayout;
     private Button btn1,btn2,btn3;
-    private LoadSerVice.MyBinder binder;
+    private LoadService.MyBinder binder;
     private boolean isBound = false;
 
     private ServiceConnection conn = new ServiceConnection() {
@@ -33,7 +33,7 @@ public class TestActivity extends BaseActivity{
 
         @Override
         public void onServiceConnected(ComponentName name, IBinder service) {
-            binder = (LoadSerVice.MyBinder) service;
+            binder = (LoadService.MyBinder) service;
         }
     };
 
@@ -64,7 +64,7 @@ public class TestActivity extends BaseActivity{
             @Override
             public void onClick(View view) {
                 if (!isBound) {
-                    Intent intent = new Intent(TestActivity.this, LoadSerVice.class);
+                    Intent intent = new Intent(TestActivity.this, LoadService.class);
                     bindService(intent, conn, BIND_AUTO_CREATE);
                     isBound = true;
                 }

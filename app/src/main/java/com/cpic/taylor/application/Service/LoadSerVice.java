@@ -18,7 +18,7 @@ import java.util.Random;
 /**
  * Created by Taylor on 2016/5/31.
  */
-public class LoadSerVice extends Service{
+public class LoadService extends Service{
 
     private Random random;
     private int bg;
