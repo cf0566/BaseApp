@@ -70,8 +70,9 @@ public class LoginActivity extends BaseActivity{
 //                    showShortToast("用户名和密码不得为空");
 //                    return;
 //                }
-                Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                 startActivity(intent);
+                finish();
 
             }
         });

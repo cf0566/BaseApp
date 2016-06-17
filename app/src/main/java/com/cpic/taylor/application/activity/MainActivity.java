@@ -1,140 +1,109 @@
 package com.cpic.taylor.application.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
+import android.view.View;
+import android.widget.Button;
+import android.widget.GridView;
 import android.widget.TextView;
 
 import com.cpic.taylor.application.R;
-import com.cpic.taylor.application.base.BaseActivity;
-import com.cpic.taylor.application.fragment.DiscoverFragment;
-import com.cpic.taylor.application.fragment.HomeFragment;
-import com.cpic.taylor.application.fragment.MineFragment;
-import com.cpic.taylor.application.fragment.NewsFragment;
+import com.cpic.taylor.application.adapter.MainGVAdapter;
+import com.cpic.taylor.application.utils.ScreenUtils;
+import com.cpic.taylor.application.utils.Utility;
 
 import java.util.ArrayList;
 
-public class MainActivity extends BaseActivity {
-
-    ViewPager pager;
-    ArrayList<Fragment> list = new ArrayList<Fragment>();
-
-    private RadioGroup rGroup;
-    private RadioButton rBtn00, rBtn01, rBtn02, rBtn03;
-
-    private TextView tvTitle;
+/**
+ * 主页面，可跳转至相册选择照片，并在此页面显示所选择的照片。
+ * Created by hanj on 14-10-13.
+ */
+public class MainActivity extends Activity {
+    private MainGVAdapter adapter;
+    private ArrayList<String> imagePathList;
+    private static final  int TAKE_PHOTO = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-
-    @Override
-    protected void getIntentData(Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    protected void loadXml() {
         setContentView(R.layout.activity_main);
-    }
+        //获取屏幕像素
+        ScreenUtils.initScreen(this);
 
-    @Override
-    protected void registerListener() {
-        pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageSelected(int position) {
-                switch (position){
-                    case 0:
-                        rBtn00.setChecked(true);
-                        break;
-                    case 1:
-                        rBtn01.setChecked(true);
-                        break;
-                    case 2:
-                        rBtn02.setChecked(true);
-                        break;
-                    case 3:
-                        rBtn03.setChecked(true);
-                        break;
-                }
-            }
+        TextView titleTV = (TextView) findViewById(R.id.topbar_title_tv);
+        Button selectImgBtn = (Button) findViewById(R.id.main_select_image);
+        GridView mainGV = (GridView) findViewById(R.id.main_gridView);
 
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-            }
+        titleTV.setText(R.string.app_name);
+        imagePathList = new ArrayList<String>();
+        adapter = new MainGVAdapter(this, imagePathList);
+        mainGV.setAdapter(adapter);
 
+        selectImgBtn.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onPageScrollStateChanged(int arg0) {
-            }
-        });
-        rGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-
-            @Override
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.activity_main_rbtn00:
-                        pager.setCurrentItem(0);
-                        tvTitle.setText(rBtn00.getText().toString());
-                        break;
-                    case R.id.activity_main_rbtn01:
-                        pager.setCurrentItem(1);
-                        tvTitle.setText(rBtn01.getText().toString());
-                        break;
-                    case R.id.activity_main_rbtn02:
-                        pager.setCurrentItem(2);
-                        tvTitle.setText(rBtn02.getText().toString());
-                        break;
-                    case R.id.activity_main_rbtn03:
-                        pager.setCurrentItem(3);
-                        tvTitle.setText(rBtn03.getText().toString());
-                        break;
-                    default:
-                        break;
-                }
+            public void onClick(View v) {
+                //跳转至最终的选择图片页面
+                Intent intent = new Intent(MainActivity.this, PhotoWallActivity.class);
+                startActivityForResult(intent,TAKE_PHOTO);
             }
         });
     }
 
     @Override
-    protected void initView() {
-        rGroup = (RadioGroup) findViewById(R.id.activity_main_rgroup);
-        pager = (ViewPager) findViewById(R.id.activity_main_vp);
-        rBtn00 = (RadioButton) findViewById(R.id.activity_main_rbtn00);
-        rBtn01 = (RadioButton) findViewById(R.id.activity_main_rbtn01);
-        rBtn02 = (RadioButton) findViewById(R.id.activity_main_rbtn02);
-        rBtn03 = (RadioButton) findViewById(R.id.activity_main_rbtn03);
-        tvTitle = (TextView) findViewById(R.id.activity_main_tv);
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == TAKE_PHOTO){
+            ArrayList<String> paths = data.getStringArrayListExtra("paths");
+//            Log.i("oye",paths.size()+"");
+            //添加，去重
+            boolean hasUpdate = false;
+            for (String path : paths) {
+                if (!imagePathList.contains(path)) {
+                    //最多9张
+                    if (imagePathList.size() == 9) {
+                        Utility.showToast(this, "最多可添加9张图片。");
+                        break;
+                    }
+                    imagePathList.add(path);
+                    hasUpdate = true;
+                }
+            }
+            if (hasUpdate) {
+                adapter.notifyDataSetChanged();
+            }
+        }
     }
 
     @Override
-    protected void initData() {
-        list.add(new HomeFragment());
-        list.add(new NewsFragment());
-        list.add(new DiscoverFragment());
-        list.add(new MineFragment());
-
-        pager.setAdapter(new MyGiftPagerAdapter(getSupportFragmentManager()));
-        rGroup.check(R.id.activity_main_rbtn00);
+    protected void onResume() {
+        super.onResume();
     }
 
-
-    class MyGiftPagerAdapter extends FragmentPagerAdapter {
-
-        public MyGiftPagerAdapter(FragmentManager fm) {
-            super(fm);
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        int code = intent.getIntExtra("code", -1);
+        if (code != 100) {
+            return;
         }
-        @Override
-        public Fragment getItem(int arg0) {
-            return list.get(arg0);
+
+        ArrayList<String> paths = intent.getStringArrayListExtra("paths");
+        //添加，去重
+        boolean hasUpdate = false;
+        for (String path : paths) {
+            if (!imagePathList.contains(path)) {
+                //最多9张
+                if (imagePathList.size() == 9) {
+                    Utility.showToast(this, "最多可添加9张图片。");
+                    break;
+                }
+                imagePathList.add(path);
+                hasUpdate = true;
+            }
         }
-        @Override
-        public int getCount() {
-            return list.size();
+        if (hasUpdate) {
+            adapter.notifyDataSetChanged();
         }
     }
 }

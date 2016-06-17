@@ -15,4 +15,19 @@
     <color name="line_btn">#FF8903</color>
     <color name="home_tv_area">#999999</color>
     <color name="main_text_checked">#89C997</color>
+
+    <color name="gray_bg">#cccccc</color>
+    <color name="gray_dark_bg">#666666</color>
+
+    <!--主题颜色-->
+    <color name="top_color">#fd4b4d</color>
+    <color name="image_checked_bg">#66000000</color>
+
+    <!-- 菜单栏 按钮文字颜色 -->
+    <color name="topbar_btn_text_color">#ffffff</color>
+
+    <!-- 返回按钮 字体颜色 -->
+    <color name="back_color_noclick">#ffff</color>
+    <color name="back_color_click">#8fff</color>
+
 </resources>
