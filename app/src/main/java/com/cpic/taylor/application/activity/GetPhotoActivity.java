@@ -19,7 +19,7 @@ import java.util.ArrayList;
  * 主页面，可跳转至相册选择照片，并在此页面显示所选择的照片。
  * Created by hanj on 14-10-13.
  */
-public class MainActivity extends Activity {
+public class GetPhotoActivity extends Activity {
     private MainGVAdapter adapter;
     private ArrayList<String> imagePathList;
     private static final  int TAKE_PHOTO = 0;
@@ -34,7 +34,6 @@ public class MainActivity extends Activity {
         TextView titleTV = (TextView) findViewById(R.id.topbar_title_tv);
         Button selectImgBtn = (Button) findViewById(R.id.main_select_image);
         GridView mainGV = (GridView) findViewById(R.id.main_gridView);
-
         titleTV.setText(R.string.app_name);
         imagePathList = new ArrayList<String>();
         adapter = new MainGVAdapter(this, imagePathList);
@@ -44,7 +43,7 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 //跳转至最终的选择图片页面
-                Intent intent = new Intent(MainActivity.this, PhotoWallActivity.class);
+                Intent intent = new Intent(GetPhotoActivity.this, PhotoWallActivity.class);
                 startActivityForResult(intent,TAKE_PHOTO);
             }
         });

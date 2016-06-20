@@ -77,7 +77,6 @@ public class FirstOpenActivity extends BaseActivity implements View.OnClickListe
         viewPager.setAdapter(vpAdapter);
         // 设置监听
         viewPager.setOnPageChangeListener(this);
-
         // 初始化底部小点
         initPoint();
     }

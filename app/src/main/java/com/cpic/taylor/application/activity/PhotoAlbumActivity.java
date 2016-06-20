@@ -100,7 +100,7 @@ public class PhotoAlbumActivity extends Activity {
      * 点击返回时，回到相册页面
      */
     private void backAction() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, GetPhotoActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         startActivity(intent);
     }

@@ -30,7 +30,6 @@ public class TakePhotoActivity extends BaseActivity{
 
     @Override
     protected void getIntentData(Bundle savedInstanceState) {
-
     }
 
     @Override
@@ -95,7 +94,6 @@ public class TakePhotoActivity extends BaseActivity{
         intent.putExtra("return-data", true);
         startActivityForResult(intent, PHOTO_REQUEST_CUT);
     }
-
 
     // 将进行剪裁后的图片显示到UI界面上
     @SuppressWarnings("deprecation")

@@ -66,6 +66,9 @@ public class TestActivity extends BaseActivity{
                 if (!isBound) {
                     Intent intent = new Intent(TestActivity.this, LoadService.class);
                     bindService(intent, conn, BIND_AUTO_CREATE);
+                    if (binder != null){
+                        binder.start("url");
+                    }
                     isBound = true;
                 }
             }

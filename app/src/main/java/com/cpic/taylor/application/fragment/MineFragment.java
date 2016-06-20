@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cpic.taylor.application.R;
-import com.cpic.taylor.application.activity.MainActivity;
+import com.cpic.taylor.application.activity.GetPhotoActivity;
 
 /**
  * Created by Taylor on 2016/5/30.
@@ -27,7 +27,7 @@ public class MineFragment extends Fragment{
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getActivity(), MainActivity.class);
+                Intent intent = new Intent(getActivity(), GetPhotoActivity.class);
                 startActivity(intent);
             }
         });
