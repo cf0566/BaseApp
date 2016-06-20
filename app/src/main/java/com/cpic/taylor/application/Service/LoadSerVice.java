@@ -1,4 +1,4 @@
-package com.cpic.taylor.application.Service;
+package com.cpic.taylor.application.service;
 
 import android.app.Service;
 import android.content.Intent;

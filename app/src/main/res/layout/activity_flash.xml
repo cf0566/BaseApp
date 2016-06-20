@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" 
     android:id="@+id/splash_root"
-    android:background="@mipmap/guide1">
+    android:background="@mipmap/spash">
     
 
 </LinearLayout>

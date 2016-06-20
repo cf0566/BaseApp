@@ -26,8 +26,8 @@ public class FirstOpenActivity extends BaseActivity implements View.OnClickListe
     // 定义一个ArrayList来存放View
     private ArrayList<View> views;
     // 引导图片资源
-    private static final int[] pics = { R.mipmap.guide1, R.mipmap.guide2,
-            R.mipmap.guide3, R.mipmap.guide4 };
+    private static final int[] pics = { R.mipmap.guide_1, R.mipmap.guide_2,
+            R.mipmap.guide_3, R.mipmap.guide_4 };
     // 底部小点的图片
     private ImageView[] points;
     // 记录当前选中位置
