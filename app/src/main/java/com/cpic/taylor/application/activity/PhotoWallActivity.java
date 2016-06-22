@@ -29,11 +29,9 @@ import java.util.ArrayList;
  */
 public class PhotoWallActivity extends Activity {
     private TextView titleTV;
-
     private ArrayList<String> list;
     private GridView mPhotoWall;
     private PhotoWallAdapter adapter;
-
     /**
      * 当前文件夹路径
      */
