@@ -12,6 +12,10 @@ import android.widget.Button;
 import com.cpic.taylor.application.R;
 import com.cpic.taylor.application.activity.RecyclerActivity;
 import com.cpic.taylor.application.utils.NotificationUtils;
+import com.gc.flashview.FlashView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Taylor on 2016/5/30.
@@ -19,7 +23,8 @@ import com.cpic.taylor.application.utils.NotificationUtils;
 public class DiscoverFragment extends Fragment{
 
     private Button btn,btn2,btn3;
-
+    private FlashView flv;
+    private List<String> imgs = new ArrayList<>();
 
     @Nullable
     @Override
@@ -29,6 +34,7 @@ public class DiscoverFragment extends Fragment{
         btn = (Button) view.findViewById(R.id.fragment_dis_btn);
         btn2 = (Button) view.findViewById(R.id.button5);
         btn3 = (Button) view.findViewById(R.id.button6);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -51,6 +57,7 @@ public class DiscoverFragment extends Fragment{
 
             }
         });
+
         return view;
     }
 }

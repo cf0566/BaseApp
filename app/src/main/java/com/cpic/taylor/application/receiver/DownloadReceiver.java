@@ -14,7 +14,6 @@ public class DownloadReceiver extends BroadcastReceiver{
     public void onReceive(Context context, Intent intent) {
         if (Intent.ACTION_BATTERY_LOW.equals(intent.getAction())){
             Log.i("oye","电量低，充电");
-
         }else{
             Log.i("oye","电量可用");
         }
