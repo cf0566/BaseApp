@@ -12,7 +12,6 @@ import android.widget.Button;
 import com.cpic.taylor.application.R;
 import com.cpic.taylor.application.activity.RecyclerActivity;
 import com.cpic.taylor.application.utils.NotificationUtils;
-import com.gc.flashview.FlashView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +22,6 @@ import java.util.List;
 public class DiscoverFragment extends Fragment{
 
     private Button btn,btn2,btn3;
-    private FlashView flv;
     private List<String> imgs = new ArrayList<>();
 
     @Nullable

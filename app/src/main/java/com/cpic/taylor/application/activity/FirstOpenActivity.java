@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class FirstOpenActivity extends BaseActivity implements View.OnClickListener,
         ViewPager.OnPageChangeListener {
 
-    ViewPager viewPager;
+    private ViewPager viewPager;
     // 定义ViewPager适配器
     private ViewPagerAdapter vpAdapter;
     // 定义一个ArrayList来存放View
