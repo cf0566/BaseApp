@@ -24,7 +24,7 @@ public class MineFragment extends Fragment{
     private Button btn;
     private FlashView flashView;
 
-    private List<String> imgs = new ArrayList<>();
+    private List<String> imgs ;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class MineFragment extends Fragment{
                 startActivity(intent);
             }
         });
-
+        imgs = new ArrayList<>();
         imgs.add("http://k.sinaimg.cn/n/sports/transform/20160524/rE9C-fxsktkr5972125.jpg/w570059.jpg");
         imgs.add("http://photocdn.sohu.com/20160120/Img435147530.jpg");
         imgs.add("http://img5.pcpop.com/ArticleImages/fnw/2016/0620/da423ebe-ea3d-4c40-a8b9-ad1e451531b1.jpg");
