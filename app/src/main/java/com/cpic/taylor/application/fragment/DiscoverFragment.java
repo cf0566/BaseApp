@@ -1,5 +1,6 @@
 package com.cpic.taylor.application.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.cpic.taylor.application.R;
+import com.cpic.taylor.application.activity.RecyclerActivity;
 import com.cpic.taylor.application.utils.NotificationUtils;
 
 /**
@@ -38,7 +40,8 @@ public class DiscoverFragment extends Fragment{
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(getActivity(), RecyclerActivity.class);
+                startActivity(intent);
             }
         });
 

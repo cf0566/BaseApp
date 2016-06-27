@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zhy.autolayout.AutoRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FFF000">
 
-    <TextView
-        android:layout_width="180px"
-        android:layout_height="wrap_content"
-        android:text="测试"
-        android:textSize="15sp"
-        />
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_recyclerview"
+        android:divider="#ffff0000"
+        android:dividerHeight="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        ></android.support.v7.widget.RecyclerView>
 
 
-</com.zhy.autolayout.AutoRelativeLayout>
+</RelativeLayout>

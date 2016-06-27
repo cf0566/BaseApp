@@ -20,6 +20,7 @@ public class NotificationUtils {
         Bitmap bitmap = BitmapFactory.decodeResource(context.getResources(), R.drawable.app_icon);
         builder.setLargeIcon(bitmap);
         builder.setSmallIcon(R.drawable.app_icon);
+
         new Thread(){
             int progress = 0;
             @Override

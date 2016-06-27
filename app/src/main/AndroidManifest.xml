@@ -47,6 +47,7 @@
         <activity android:name=".activity.PhotoAlbumActivity"></activity>
         <activity android:name=".activity.PhotoWallActivity"></activity>
         <service android:name=".service.LoadService"></service>
+        <activity android:name=".activity.RecyclerActivity"></activity>
         <receiver android:name=".receiver.DownloadReceiver">
             <intent-filter>
                 <action android:name="android.intent.action.BATTERY_LOW"/>
