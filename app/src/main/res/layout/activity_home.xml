@@ -29,10 +29,7 @@
                     android:text="首页"
                     android:textColor="@color/color_white"
                     android:textSize="20sp" />
-
-
             </LinearLayout>
-
             <android.support.v4.view.ViewPager
                 android:id="@+id/activity_main_vp"
                 android:layout_width="match_parent"
@@ -50,29 +47,29 @@
                 <RadioButton
                     android:id="@+id/activity_main_rbtn00"
                     style="@style/main_rbtn_style"
-                    android:tag="0"
                     android:drawableTop="@drawable/rbtn_checked_bg0"
+                    android:tag="0"
                     android:text="首页" />
 
                 <RadioButton
                     android:id="@+id/activity_main_rbtn01"
                     style="@style/main_rbtn_style"
-                    android:tag="1"
                     android:drawableTop="@drawable/rbtn_checked_bg1"
+                    android:tag="1"
                     android:text="资讯" />
 
                 <RadioButton
                     android:id="@+id/activity_main_rbtn02"
                     style="@style/main_rbtn_style"
-                    android:tag="2"
                     android:drawableTop="@drawable/rbtn_checked_bg2"
+                    android:tag="2"
                     android:text="发现" />
 
                 <RadioButton
                     android:id="@+id/activity_main_rbtn03"
                     style="@style/main_rbtn_style"
-                    android:tag="3"
                     android:drawableTop="@drawable/rbtn_checked_bg3"
+                    android:tag="3"
                     android:text="我的" />
             </RadioGroup>
         </LinearLayout>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -28,10 +29,14 @@ public class HomeActivity extends BaseActivity {
 
     private TextView tvTitle;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+
+    // 上一次选择的rbtn
+    private RadioButton lastButton;
+    // Fragment的管理类
+    private FragmentManager mManager;
+    // Fragment的事务类
+    private FragmentTransaction mTrans;
+    // 管理Fragment的List集合
 
     @Override
     protected void getIntentData(Bundle savedInstanceState) {
@@ -76,6 +81,7 @@ public class HomeActivity extends BaseActivity {
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+
                 switch (checkedId) {
                     case R.id.activity_main_rbtn00:
                         pager.setCurrentItem(0);

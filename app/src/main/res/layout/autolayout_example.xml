@@ -4,13 +4,10 @@
     android:layout_height="match_parent"
     android:background="#FFF000">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/id_recyclerview"
-        android:divider="#ffff0000"
-        android:dividerHeight="3dp"
+    <com.squareup.timessquare.CalendarPickerView
+        android:id="@+id/calendar_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        ></android.support.v7.widget.RecyclerView>
-
+        />
 
 </RelativeLayout>
